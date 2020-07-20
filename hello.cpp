@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+
 class Point {
 private:
     int x;
@@ -17,7 +16,7 @@ int main()
     Point P;
     P.setX(1);
     P.setY(2);
-    cout << P.getX()<<endl;
-    cout << P.getY()<<endl;
+    P.getX();
+    P.getY();
     return 0;
  }
