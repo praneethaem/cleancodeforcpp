@@ -1,12 +1,18 @@
 
-bool vitalsAreOk(float bpm, float spo2, float respRate) {
-  int i;
-  if(bpm < 70 || bpm > 150) {
+bool chk_all_params(float param,float lowerlimit,float higherlimit);
+
+bool chk_all_params(float param,float lowerlimit,float higherlimit)
+{
+ if ((param < lowerlimit)||(param > higherlimit))
+ {
     return false;
-  } else if(spo2 < 80) {
-    return false;
-  } else if(respRate < 30 || respRate > 60) {
-    return false;
-  }
+ }
   return true;
 }
+
+bool vitalsAreOk(float bpm, float spo2, float respRate) 
+{
+bool ret = chk_all_params(bpm, 70 , 150)  && chk_all_params(spo2,80 ,100 ) && chk_all_params(resp_Rate,30,60);
+return ret;
+}
+
